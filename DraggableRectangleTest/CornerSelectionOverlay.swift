@@ -24,7 +24,7 @@ class CornerSelectionOverlayView: UIView, UIGestureRecognizerDelegate {
     
     var myBezier:UIBezierPath? = UIBezierPath()
     
-    var fillColor = UIColor(colorLiteralRed: 127, green: 13, blue: 80, alpha: 0.3)
+    var fillColor = UIColor.darkGray
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,18 +34,23 @@ class CornerSelectionOverlayView: UIView, UIGestureRecognizerDelegate {
         super.init(coder: aDecoder)
         
         draggerPointTopLeft = UIView(frame: CGRect(x: 28, y: 78, width: 44, height: 44))
-        draggerPointTopLeft.backgroundColor = UIColor.black
+        draggerPointTopLeft.backgroundColor = UIColor.clear
         self.addSubview(draggerPointTopLeft)
         
         let uiPanGestureRecognizer = UIPanGestureRecognizer(target:self, action: #selector(handlePan))
         draggerPointTopLeft.addGestureRecognizer(uiPanGestureRecognizer)
-
+        
+        self.alpha = 0.85
         
     }
     
     
     override func draw(_ rect: CGRect) {
 
+        let context:CGContext = UIGraphicsGetCurrentContext()!
+        
+        fillColor.setFill()
+        UIRectFill(rect)
         //myBezier = nil
         myBezier = UIBezierPath()
         myBezier?.move(to: rectCornerTopLeft)
@@ -53,11 +58,16 @@ class CornerSelectionOverlayView: UIView, UIGestureRecognizerDelegate {
         myBezier?.addLine(to: rectCornerBottomRight)
         myBezier?.addLine(to: rectCornerBottomLeft)
         myBezier?.close()
+        
         myBezier?.lineWidth = 4
         UIColor.red.setStroke()
-        fillColor.setFill()
+        //fillColor.setFill()
         myBezier?.stroke()
+        context.setBlendMode(CGBlendMode.destinationOut)
+    
         myBezier?.fill()
+        
+        context.setBlendMode(CGBlendMode.normal)
         
     }
     

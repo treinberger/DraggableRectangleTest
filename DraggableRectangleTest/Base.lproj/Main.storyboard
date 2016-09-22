@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="647" image="IMG_1886" translatesAutoresizingMaskIntoConstraints="NO" id="QOh-Bw-hTZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="647" image="IMG_1889" translatesAutoresizingMaskIntoConstraints="NO" id="QOh-Bw-hTZ">
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -46,6 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_1886" width="1224" height="1632"/>
+        <image name="IMG_1889" width="1224" height="1632"/>
     </resources>
 </document>
