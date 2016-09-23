@@ -11,6 +11,7 @@ import UIKit
 
 class CornerSelectionOverlayView: UIView, UIGestureRecognizerDelegate {
     
+    private var fillLayer = CAShapeLayer()
     
     var draggerPointTopLeft = UIView()
     var draggerPointTopRight = UIView()
@@ -22,9 +23,9 @@ class CornerSelectionOverlayView: UIView, UIGestureRecognizerDelegate {
     var rectCornerBottomRight = CGPoint(x: 300, y: 450)
     var rectCornerBottomLeft = CGPoint(x: 50, y: 400)
     
-    var myBezier:UIBezierPath? = UIBezierPath()
+    var imageCornerPath:UIBezierPath? = UIBezierPath()
     
-    var fillColor = UIColor.darkGray
+    var fillColor = UIColor(red: 0.9, green: 0.5, blue: 0.5, alpha: 0.5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,42 +33,50 @@ class CornerSelectionOverlayView: UIView, UIGestureRecognizerDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        fillLayer.frame = self.bounds
         
         draggerPointTopLeft = UIView(frame: CGRect(x: 28, y: 78, width: 44, height: 44))
         draggerPointTopLeft.backgroundColor = UIColor.clear
+        draggerPointTopLeft.addSubview(UIImageView(image: UIImage(named: "bobbel")))
+        
+        //draggerPointTopLeft = UIImageView(image: UIImage(named: "bobbel"))
+        //draggerPointTopLeft.frame = CGRect(x: 28, y: 78, width: 44, height: 44)
         self.addSubview(draggerPointTopLeft)
         
         let uiPanGestureRecognizer = UIPanGestureRecognizer(target:self, action: #selector(handlePan))
         draggerPointTopLeft.addGestureRecognizer(uiPanGestureRecognizer)
-        
-        self.alpha = 0.85
-        
+
     }
     
     
     override func draw(_ rect: CGRect) {
-
-        let context:CGContext = UIGraphicsGetCurrentContext()!
+ 
+        let maskPath = UIBezierPath()
+        maskPath.move(to: CGPoint(x:rect.minX, y:rect.minY))
+        maskPath.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+        maskPath.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        maskPath.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+        maskPath.close()
         
-        fillColor.setFill()
-        UIRectFill(rect)
-        //myBezier = nil
-        myBezier = UIBezierPath()
-        myBezier?.move(to: rectCornerTopLeft)
-        myBezier?.addLine(to: rectCornerTopRight)
-        myBezier?.addLine(to: rectCornerBottomRight)
-        myBezier?.addLine(to: rectCornerBottomLeft)
-        myBezier?.close()
         
-        myBezier?.lineWidth = 4
-        UIColor.red.setStroke()
-        //fillColor.setFill()
-        myBezier?.stroke()
-        context.setBlendMode(CGBlendMode.destinationOut)
+        imageCornerPath = UIBezierPath()
+        imageCornerPath?.move(to: rectCornerTopLeft)
+        imageCornerPath?.addLine(to: rectCornerTopRight)
+        imageCornerPath?.addLine(to: rectCornerBottomRight)
+        imageCornerPath?.addLine(to: rectCornerBottomLeft)
+        imageCornerPath?.close()
+        
+        maskPath.append(imageCornerPath!)
+        fillLayer.path = maskPath.cgPath
+        fillLayer.fillRule = kCAFillRuleEvenOdd
+        fillLayer.fillColor = self.fillColor.cgColor
     
-        myBezier?.fill()
-        
-        context.setBlendMode(CGBlendMode.normal)
+        imageCornerPath?.lineWidth = 4
+        UIColor.red.setStroke()
+        imageCornerPath?.stroke()
+
+        self.layer.addSublayer(fillLayer)
+        self.bringSubview(toFront: draggerPointTopLeft)
         
     }
     
