@@ -24,8 +24,36 @@
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="647" translatesAutoresizingMaskIntoConstraints="NO" id="JV3-mv-SEU" customClass="CornerSelectionOverlayView" customModule="DraggableRectangleTest" customModuleProvider="target">
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="647" translatesAutoresizingMaskIntoConstraints="NO" id="JV3-mv-SEU" customClass="CornerView" customModule="DraggableRectangleTest" customModuleProvider="target">
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXp-yB-scu" customClass="CornerTouchView" customModule="DraggableRectangleTest" customModuleProvider="target">
+                                        <frame key="frameInset" minX="275" minY="152" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sqm-O1-6PZ" customClass="CornerTouchView" customModule="DraggableRectangleTest" customModuleProvider="target">
+                                        <frame key="frameInset" minX="275" minY="464" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIW-uK-OU8" userLabel="draggerPointTopLeft" customClass="CornerTouchView" customModule="DraggableRectangleTest" customModuleProvider="target">
+                                        <frame key="frameInset" minX="48" minY="152" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idj-a4-lag" customClass="CornerTouchView" customModule="DraggableRectangleTest" customModuleProvider="target">
+                                        <frame key="frameInset" minX="48" minY="464" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="draggerPointBottomLeft" destination="idj-a4-lag" id="Hs7-bY-EJF"/>
+                                    <outlet property="draggerPointBottomRight" destination="Sqm-O1-6PZ" id="tki-3R-lj7"/>
+                                    <outlet property="draggerPointTopLeft" destination="UIW-uK-OU8" id="l5B-bh-g6i"/>
+                                    <outlet property="draggerPointTopRight" destination="SXp-yB-scu" id="nKh-oA-8rK"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,6 +68,9 @@
                             <constraint firstItem="QOh-Bw-hTZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="weO-Yu-c7e"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cornerView" destination="JV3-mv-SEU" id="wQf-wH-TDA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

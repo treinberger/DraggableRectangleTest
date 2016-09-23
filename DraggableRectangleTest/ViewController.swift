@@ -10,18 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var someString:String = "Felix"
+    @IBOutlet weak var cornerView: CornerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        cornerView.polygonFillColor = UIColor.black
+        cornerView.polygonLineWidth = 4
         
     }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

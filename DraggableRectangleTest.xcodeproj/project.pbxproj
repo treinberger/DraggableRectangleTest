@@ -12,7 +12,7 @@
 		45DC16231D929E2D0057AB57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DC16211D929E2D0057AB57 /* Main.storyboard */; };
 		45DC16251D929E2D0057AB57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DC16241D929E2D0057AB57 /* Assets.xcassets */; };
 		45DC16281D929E2D0057AB57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DC16261D929E2D0057AB57 /* LaunchScreen.storyboard */; };
-		45DC16301D929F6D0057AB57 /* CornerSelectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC162F1D929F6D0057AB57 /* CornerSelectionOverlay.swift */; };
+		45DC16301D929F6D0057AB57 /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC162F1D929F6D0057AB57 /* CornerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		45DC16241D929E2D0057AB57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45DC16271D929E2D0057AB57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45DC16291D929E2D0057AB57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45DC162F1D929F6D0057AB57 /* CornerSelectionOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerSelectionOverlay.swift; sourceTree = "<group>"; };
+		45DC162F1D929F6D0057AB57 /* CornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				45DC16241D929E2D0057AB57 /* Assets.xcassets */,
 				45DC16261D929E2D0057AB57 /* LaunchScreen.storyboard */,
 				45DC16291D929E2D0057AB57 /* Info.plist */,
-				45DC162F1D929F6D0057AB57 /* CornerSelectionOverlay.swift */,
+				45DC162F1D929F6D0057AB57 /* CornerView.swift */,
 			);
 			path = DraggableRectangleTest;
 			sourceTree = "<group>";
@@ -99,6 +99,7 @@
 				TargetAttributes = {
 					45DC16191D929E2D0057AB57 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 457889ETJL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -140,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45DC16201D929E2D0057AB57 /* ViewController.swift in Sources */,
-				45DC16301D929F6D0057AB57 /* CornerSelectionOverlay.swift in Sources */,
+				45DC16301D929F6D0057AB57 /* CornerView.swift in Sources */,
 				45DC161E1D929E2D0057AB57 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 457889ETJL;
 				INFOPLIST_FILE = DraggableRectangleTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.allianz.DraggableRectangleTest;
@@ -276,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 457889ETJL;
 				INFOPLIST_FILE = DraggableRectangleTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.allianz.DraggableRectangleTest;
@@ -303,6 +306,7 @@
 				45DC162E1D929E2D0057AB57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
